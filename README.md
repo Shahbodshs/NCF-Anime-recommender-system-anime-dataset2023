@@ -11,6 +11,62 @@ This paper proposes a deep learning framework that unifies Generalized Matrix Fa
 
 ---
 
+## 🧩 Pretrained Model & Artifacts
+
+This repo includes a pretrained version of the full Neural Collaborative Filtering (NCF) model specifically trained on the anime dataset.
+
+### 📦 Included Files
+
+| File Name               | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `full_anime_model.keras` | Full NCF model trained on user-anime interactions                         |
+| `user_encoder.pkl`       | Label encoder for mapping user IDs to numerical indices                    |
+| `anime_encoder.pkl`      | Label encoder for mapping anime IDs to numerical indices                   |
+| `scaler.pkl`             | Scaler used to normalize ratings                                           |
+| `user_weights.npy`       | Precomputed weights (embeddings) for users                                 |
+| `anime_weights.npy`      | Precomputed weights (embeddings) for animes                                |
+
+These files have been generated and uploaded for convenience. You **do not need to retrain the model** unless you wish to improve performance or experiment with better architectures.
+
+---
+
+### 🛠️ How to Use
+
+1. Load the encoders to transform raw user and anime IDs into model-friendly format.
+2. Use the scaler to normalize your rating scores if needed.
+3. Load the `.keras` model using Keras:
+   ```python
+   from tensorflow.keras.models import load_model
+   model = load_model("full_anime_model.keras")
+   ```
+
+4. Predict user-anime interaction (example):
+   ```python
+   import pickle
+   import numpy as np
+
+   # Load encoders and model
+   with open("user_encoder.pkl", "rb") as f:
+       user_encoder = pickle.load(f)
+   with open("anime_encoder.pkl", "rb") as f:
+       anime_encoder = pickle.load(f)
+
+   model = load_model("full_anime_model.keras")
+
+   # Example usage
+   user_id = 12345
+   anime_id = 67890
+
+   user_input = np.array([[user_encoder.transform([user_id])[0]]])
+   anime_input = np.array([[anime_encoder.transform([anime_id])[0]]])
+
+   prediction = model.predict([user_input, anime_input])
+   print(f"Predicted rating: {prediction[0][0]:.3f}")
+   ```
+
+Let me know if you want to add a demo notebook or endpoint for inference!
+
+
 ### 🧠 Implemented Models
 For implementation what we need to do is to both caputre the linear relationship between user and items and also capture the non linearity with Dense layers. 
 
