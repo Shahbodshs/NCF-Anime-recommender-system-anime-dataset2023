@@ -32,15 +32,16 @@ These files have been generated and uploaded for convenience. You **do not need 
 
 ### 🛠️ How to Use
 
-1. Load the encoders to transform raw user and anime IDs into model-friendly format.
-2. Use the scaler to normalize your rating scores if needed.
-3. Load the `.keras` model using Keras:
+1. You can download the outputs from my kaggle environemnt: [Model+Encoders+Scaler](https://www.kaggle.com/code/shahbodsobhkhiz/anime-custom-ncf/output)
+2. Load the encoders to transform raw user and anime IDs into model-friendly format.
+3. Use the scaler to normalize your rating scores if needed.
+4. Load the `.keras` model using Keras:
    ```python
    from tensorflow.keras.models import load_model
    model = load_model("full_anime_model.keras")
    ```
 
-4. Read the user and anime encoders:
+5. Read the user and anime encoders:
    ```python
    import joblib
    anime_encoder = joblib.load("/kaggle/input/anime/anime_encoder.pkl")
