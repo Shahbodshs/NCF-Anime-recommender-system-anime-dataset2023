@@ -169,8 +169,6 @@ Some directions to enhance the performance and diversity of the recommender syst
 - ✅ **Hybrid Recommendation**  
   Combine user-based collaborative filtering with neural models to capture both user similarity and deep representations.
 
-- ✅ **Autoencoders / Variational Autoencoders**  
-  Leverage unsupervised deep learning for embedding generation and dimensionality reduction.
 
 
 ---
@@ -179,6 +177,11 @@ Some directions to enhance the performance and diversity of the recommender syst
 
 
 ## Source: 
+Thanks to [Sajid](https://www.kaggle.com/dbdmobile) for providing great ideas for Exploratory data analysis and model creation. 
+I performed better than my model, though the model that i suggested can also perform good if you consider hyperparameter tuning and try to change the architecture a little it better. 
+But since i was just trying to learn about the reommender system, this was a great opportunity for me to learn.
 
-[Source 1 :EDA](https://www.kaggle.com/code/dbdmobile/anime-recommendation-1)
-[Source 2: Model implementation](https://www.kaggle.com/code/dbdmobile/anime-recommendation-2)
+
+- [Source 1 :EDA](https://www.kaggle.com/code/dbdmobile/anime-recommendation-1)
+
+- [Source 2: Model implementation](https://www.kaggle.com/code/dbdmobile/anime-recommendation-2)
