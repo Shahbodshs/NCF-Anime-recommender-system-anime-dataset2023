@@ -175,3 +175,9 @@ Some directions to enhance the performance and diversity of the recommender syst
 ---
 
 📁 Feel free to check the code and EDA notebooks to explore more!
+
+
+## Source: 
+
+[Source 1 :EDA](https://www.kaggle.com/code/dbdmobile/anime-recommendation-1)
+[Source 2: Model implementation](https://www.kaggle.com/code/dbdmobile/anime-recommendation-2)
