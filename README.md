@@ -188,6 +188,6 @@ But since i was just trying to learn about the reommender system, this was a gre
 - [Source 2: Model implementation](https://www.kaggle.com/code/dbdmobile/anime-recommendation-2)
 
 
-## Further Updates: 
+## Future Updates: 
 
 I will try to implement a better model using a hybrid approach with another model being either graph based recommender or a user based recommendation system.
