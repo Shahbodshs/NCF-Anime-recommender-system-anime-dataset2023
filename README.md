@@ -178,7 +178,8 @@ Some directions to enhance the performance and diversity of the recommender syst
 
 ## Source: 
 Thanks to [Sajid](https://www.kaggle.com/dbdmobile) for providing great ideas for Exploratory data analysis and model creation. 
-I performed better than my model, though the model that i suggested can also perform good if you consider hyperparameter tuning and try to change the architecture a little it better. 
+
+It performed better than my model, though the model that i suggested can also perform good if you consider hyperparameter tuning and try to change the architecture a little it better. 
 But since i was just trying to learn about the reommender system, this was a great opportunity for me to learn.
 
 
