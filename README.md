@@ -40,28 +40,30 @@ These files have been generated and uploaded for convenience. You **do not need 
    model = load_model("full_anime_model.keras")
    ```
 
-4. Predict user-anime interaction (example):
+4. Read the user and anime encoders:
    ```python
-   import pickle
-   import numpy as np
-
-   # Load encoders and model
-   with open("user_encoder.pkl", "rb") as f:
-       user_encoder = pickle.load(f)
-   with open("anime_encoder.pkl", "rb") as f:
-       anime_encoder = pickle.load(f)
-
-   model = load_model("full_anime_model.keras")
-
-   # Example usage
-   user_id = 12345
-   anime_id = 67890
-
-   user_input = np.array([[user_encoder.transform([user_id])[0]]])
-   anime_input = np.array([[anime_encoder.transform([anime_id])[0]]])
-
-   prediction = model.predict([user_input, anime_input])
-   print(f"Predicted rating: {prediction[0][0]:.3f}")
+   import joblib
+   anime_encoder = joblib.load("/kaggle/input/anime/anime_encoder.pkl")
+   user_encoder = joblib.load("/kaggle/input/anime/user_encoder.pkl")
+   ```
+5. Also extract the weights: 
+   ```python
+   def extract_weights(name, model):
+       # Get the layer by name from the model
+       weight_layer = model.get_layer(name)
+       
+       # Get the weights from the layer
+       weights = weight_layer.get_weights()[0]
+       
+       # Normalize the weights
+       weights = weights / np.linalg.norm(weights, axis=1).reshape((-1, 1))
+       
+       return weights
+   
+   # Extract weights for anime embeddings
+   anime_weights = extract_weights('anime_embedding', model)
+   # Extract weights for user embeddings
+   user_weights = extract_weights('user_embedding', model)
    ```
 
 Let me know if you want to add a demo notebook or endpoint for inference!
